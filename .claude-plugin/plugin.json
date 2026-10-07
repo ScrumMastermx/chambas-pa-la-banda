@@ -1,0 +1,13 @@
+{
+  "name": "chambas",
+  "description": "Job-hunt kit for people who just lost their job: find roles, tailor your CV honestly, review your interviews and practice with a coach. English + Spanish.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Rogelio Jimenez",
+    "url": "https://github.com/ScrumMastermx"
+  },
+  "homepage": "https://github.com/ScrumMastermx/chambas-pa-la-banda",
+  "repository": "https://github.com/ScrumMastermx/chambas-pa-la-banda",
+  "license": "MIT",
+  "keywords": ["job-search", "resume", "cv", "interview", "career", "layoff", "spanish", "espanol"]
+}

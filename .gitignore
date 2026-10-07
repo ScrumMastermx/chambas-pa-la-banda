@@ -1,0 +1,15 @@
+# Never commit personal job-hunt data. If you run Chambas inside a clone of
+# this repo by mistake, these keep your files out of git.
+profile.md
+cv-master.md
+tracker.md
+/CLAUDE.md
+scans/
+applications/
+interviews/
+practice/
+*.pdf
+*.docx
+!tests/fixtures/**
+.DS_Store
+tests/out/

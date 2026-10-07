@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{NAME}} — CV</title>
+<style>
+  /* Clean, ATS-friendly one-column CV. Print with Ctrl/Cmd+P → Save as PDF.
+     Turn OFF "Headers and footers" in the print dialog. */
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 760px;
+    margin: 1em auto;
+    padding: 0 1em;
+    line-height: 1.35;
+    color: #222;
+    background: #fff;
+    font-size: 10.5pt;
+  }
+  h1 {
+    font-size: 1.55em;
+    text-align: center;
+    margin: 0 0 0.15em 0;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .headline { text-align: center; margin: 0.05em 0; font-size: 0.95em; color: #333; }
+  .contact  { text-align: center; margin: 0.05em 0 1em 0; font-size: 0.85em; color: #555; }
+  .contact a { color: #555; text-decoration: none; }
+  h2 {
+    font-size: 0.95em;
+    margin: 1.1em 0 0.4em 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #111;
+    border-bottom: 1px solid #888;
+    padding-bottom: 0.1em;
+  }
+  h3 { font-size: 1em; margin: 0.9em 0 0.1em 0; color: #111; }
+  .meta { margin: 0.05em 0 0.2em 0; font-size: 0.92em; color: #444; font-style: italic; }
+  p { margin: 0.3em 0; }
+  ul { margin: 0.2em 0 0.5em 0; padding-left: 1.3em; }
+  li { margin-bottom: 0.15em; font-size: 0.95em; }
+  strong { color: #000; }
+  .print-tip {
+    font-family: sans-serif; font-size: 12px; background: #fff7d6; color: #5a4a00;
+    border: 1px solid #e6d27a; padding: 8px 12px; margin-bottom: 1.2em; border-radius: 6px;
+  }
+  @media print { .print-tip { display: none; } }
+  @page { margin: 0.6in; }
+</style>
+</head>
+<body>
+<div class="print-tip">{{PRINT_TIP}}</div>
+
+<h1>{{NAME}}</h1>
+<p class="headline">{{HEADLINE}}</p>
+<p class="contact">{{LOCATION}} · {{CONTACT_LINE}}</p>
+
+<h2>{{SUMMARY_LABEL}}</h2>
+<p>{{SUMMARY}}</p>
+
+<h2>{{EXPERIENCE_LABEL}}</h2>
+<!-- repeat per role -->
+<h3>{{TITLE}} · {{COMPANY}}</h3>
+<p class="meta">{{CITY}} · {{START}} – {{END}}</p>
+<ul>
+  <li>{{BULLET}}</li>
+</ul>
+<!-- end repeat -->
+
+<h2>{{SKILLS_LABEL}}</h2>
+<p>{{SKILLS}}</p>
+
+<h2>{{EDUCATION_LABEL}}</h2>
+<p>{{EDUCATION}}</p>
+
+<h2>{{LANGUAGES_LABEL}}</h2>
+<p>{{LANGUAGES}}</p>
+</body>
+</html>

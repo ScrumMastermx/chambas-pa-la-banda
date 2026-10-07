@@ -1,0 +1,20 @@
+{
+  "name": "chambas-pa-la-banda",
+  "owner": {
+    "name": "Rogelio Jimenez",
+    "url": "https://github.com/ScrumMastermx"
+  },
+  "metadata": {
+    "description": "Job-hunt kit for Claude Code: find jobs, tailor your CV, review interviews, practice with a coach. English + Spanish.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "chambas",
+      "source": "./",
+      "description": "Find jobs, tailor your CV without inventing anything, get feedback on interview transcripts and practice mock interviews. English + Spanish.",
+      "category": "productivity",
+      "tags": ["job-search", "resume", "interview", "career", "spanish"]
+    }
+  ]
+}

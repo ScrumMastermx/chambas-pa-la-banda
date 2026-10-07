@@ -1,0 +1,14 @@
+[Fictional recruiter screen, auto-transcript]
+Recruiter (Sam): Hi Laura, thanks for joining. Can you tell me a bit about yourself?
+Laura: Hi! Yes, um, so I'm a developer, I've been working for like six years, I did a lot of things, backend, some frontend at the agency, WordPress, Django, then at Tiendita I was in the backend team, we did the orders API and many other things, and yeah, now I'm looking.
+Recruiter (Sam): Great. Why are you looking right now?
+Laura: Well, they fired a lot of people, it was kind of a mess honestly, management didn't plan anything and they just cut the whole team, so, yeah.
+Recruiter (Sam): Sorry to hear that. Tell me about a reliability problem you solved.
+Laura: Yes, so the payment webhooks were failing, around 3 percent of payments failed, so I proposed moving them to RabbitMQ with retries and a dead letter queue, I built it in about three weeks, and failures went under half a percent.
+Recruiter (Sam): Nice. Have you used Kubernetes?
+Laura: Not really, we used Docker but deploys were done by another team.
+Recruiter (Sam): What are your salary expectations?
+Laura: Um, whatever you think is fair, I'm flexible.
+Recruiter (Sam): Okay. Do you have any questions for me?
+Laura: No, I think you covered everything.
+Recruiter (Sam): Great, we'll be in touch next week.

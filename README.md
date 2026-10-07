@@ -83,6 +83,10 @@ MIT, see [LICENSE](LICENSE). Use it, share it, improve it.
 Found a bug, or have an idea that would have helped your job search? Open an
 issue. Suggestions in Spanish are welcome.
 
+**Tests** (need a logged-in `claude` CLI; they use a fictional persona):
+- `tests/run-smoke.sh [tailor|review|apply|find|setup|all]`: runs the real skills headless and checks the outputs (e.g. the tailored CV must not claim tools the persona never used).
+- `tests/chrome/run-chrome-test.sh`: drives your Chrome through `/chambas:apply` on a fake local form; fails if the final Submit is ever pressed.
+
 ---
 
 ## Español

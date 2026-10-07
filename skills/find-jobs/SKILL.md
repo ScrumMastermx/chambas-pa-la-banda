@@ -37,6 +37,13 @@ Vary queries between runs.
 If the Agent tool is available, you may run query groups in parallel subagents;
 otherwise run them yourself. Either way, keep going without asking the user.
 
+Use only WebSearch, WebFetch and (if connected) Chrome. Do NOT write or run
+scripts, `curl` or `python`: most users aren't technical, and a permission
+prompt for a shell command they can't read is scary and blocks the run.
+Public ATS boards can be read with WebFetch directly, e.g.
+`https://boards-api.greenhouse.io/v1/boards/<company>/jobs`,
+`https://api.lever.co/v0/postings/<company>`, `https://jobs.ashbyhq.com/<company>`.
+
 ## 2. Collect
 For each result, capture: company, title, location/remote rule, link, source,
 salary if shown, posting date if shown.

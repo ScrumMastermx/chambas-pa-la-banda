@@ -8,13 +8,13 @@ FIX="$REPO/tests/fixtures"
 # Run outside the repo: real users work in their own folder, never inside a clone.
 OUT="${CHAMBAS_TEST_OUT:-$(mktemp -d "${TMPDIR:-/tmp}/chambas-smoke.XXXXXX")}"
 WHICH="${1:-all}"
-TOOLS=(Read Write Edit Glob Grep Skill WebFetch "Bash(date:*)" "Bash(mkdir:*)" "Bash(ls:*)" "Bash(cp:*)" "Bash(cat:*)")
+TOOLS=(Read Write Edit Glob Grep Skill WebFetch WebSearch "Bash(date:*)" "Bash(mkdir:*)" "Bash(ls:*)" "Bash(cp:*)" "Bash(cat:*)")
 fail=0
 check() { if eval "$2"; then echo "  PASS $1"; else echo "  FAIL $1"; fail=1; fi; }
 
 run() { # dir prompt
   ( cd "$1" && claude -p --plugin-dir "$REPO" --permission-mode acceptEdits \
-      --output-format json --allowedTools "${TOOLS[@]}" -- "$2" > "$1/_claude-output.json" 2>&1 ) || true
+      --output-format json --allowedTools "${TOOLS[@]}" -- "$2" < /dev/null > "$1/_claude-output.json" 2> "$1/_claude-stderr.txt" ) || true
   python3 -c 'import json,sys; d=json.load(open(sys.argv[1])).get("permission_denials") or []; print("  WARN permission denials: %s" % d) if d else None' "$1/_claude-output.json" 2>/dev/null || true
 }
 
@@ -68,6 +68,19 @@ if [[ "$WHICH" == apply || "$WHICH" == all ]]; then
   check "salary kept negotiable"         'grep -qiE "negociable|negotiable" "$kit"'
   check "last salary not leaked"         '! grep -q "62,\?000" "$kit"'
   check "tracker not marked applied yet" '! grep -qi "applied\|aplicad" "$d/tracker.md"'
+fi
+
+if [[ "$WHICH" == find || "$WHICH" == all ]]; then
+  echo "== find-jobs (live web)"
+  d=$(user_folder find)
+  run "$d" "/chambas:find-jobs Run the search now and save the scan. Don't ask me anything."
+  scan=$(ls "$d"/scans/scan-*.md 2>/dev/null | head -1)
+  check "scan saved"                      '[[ -n "$scan" ]]'
+  check "has job links"                   'grep -q "https\?://" "$scan"'
+  check "every shown job labelled"        'grep -qE "✅|⚠️" "$scan"'
+  check "no aggregator marked verified"   '! grep -iE "linkedin\.com|ladders|bebee|indeed\.com" "$scan" | grep -q "✅"'
+  check "eligibility tagged"              'grep -qE "OK|Ask|Preguntar|Pregunta" "$scan"'
+  check "no shell commands attempted"     'python3 -c "import json,sys;d=json.load(open(sys.argv[1])).get(\"permission_denials\") or [];sys.exit(1 if any(x[\"tool_name\"]==\"Bash\" and \"date\" not in x[\"tool_input\"].get(\"command\",\"\") for x in d) else 0)" "$d/_claude-output.json"'
 fi
 
 if [[ "$WHICH" == setup || "$WHICH" == all ]]; then

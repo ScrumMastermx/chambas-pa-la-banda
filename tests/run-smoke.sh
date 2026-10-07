@@ -56,6 +56,20 @@ if [[ "$WHICH" == review || "$WHICH" == all ]]; then
   check "written in Spanish (profile=es)"    'grep -qiE "entrevista|respuesta" "$rev"'
 fi
 
+if [[ "$WHICH" == apply || "$WHICH" == all ]]; then
+  echo "== apply (no Chrome: answer sheet)"
+  d=$(user_folder apply); app="$d/applications/nimbus-freight-senior-backend-engineer-2026-10-06"
+  mkdir -p "$app"; cp "$FIX/job-post-nimbus.md" "$app/job-post.md"; cp "$FIX/cv-laura.md" "$app/cv.md"
+  printf '# Notes\nFit 7/10. Gap: Kubernetes.\n' > "$app/notes.md"; printf '%%PDF-1.4 test\n' > "$app/cv.pdf"
+  run "$d" "/chambas:apply Prepare my application for the Nimbus Freight job in applications/. Answers to the sensitive questions: I'm authorized to work in Mexico only, I need no sponsorship for remote-from-Mexico, salary: say it's negotiable, start in 2 weeks, prefer not to answer demographic questions. Free-text drafts are approved as you write them. Don't ask anything else; save the answer sheet."
+  kit="$app/apply-kit.md"
+  check "apply-kit.md written"           '[[ -f "$kit" ]]'
+  check "no invented Kubernetes claim"   '! grep -qiE "(experience|experiencia|used|usé|worked) [^.]*kubernetes" "$kit"'
+  check "salary kept negotiable"         'grep -qiE "negociable|negotiable" "$kit"'
+  check "last salary not leaked"         '! grep -q "62,\?000" "$kit"'
+  check "tracker not marked applied yet" '! grep -qi "applied\|aplicad" "$d/tracker.md"'
+fi
+
 if [[ "$WHICH" == setup || "$WHICH" == all ]]; then
   echo "== setup"
   d="$OUT/setup"; mkdir -p "$d"; cp "$FIX/cv-laura.md" "$d/mi-cv.md"

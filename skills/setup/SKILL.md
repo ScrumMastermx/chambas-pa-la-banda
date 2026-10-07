@@ -117,7 +117,7 @@ Create `CLAUDE.md` in the folder so every future session remembers:
 - Language: <en|es>. Always answer me in it.
 - My facts live in cv-master.md and profile.md. Never invent experience.
 - Tracker: tracker.md. Log every application there.
-- Commands: /chambas:find-jobs · /chambas:tailor · /chambas:interview-review · /chambas:coach · /chambas:tracker
+- Commands: /chambas:find-jobs · /chambas:tailor · /chambas:apply · /chambas:interview-review · /chambas:coach · /chambas:tracker
 ```
 
 ## Step 4 — Close

@@ -44,15 +44,22 @@ Skip companies in `companies_exclude`.
 
 ## 3. Verify (the step that makes this worth using)
 For each candidate you plan to show (aim for the best 10-20):
-- Try to open the link with WebFetch. Prefer the company's own careers/ATS page
-  over aggregators; if you found it on an aggregator, search for the same role on
-  the company site.
+- Prefer the company's own careers/ATS page over aggregators; if you found it on
+  an aggregator, search for the same role on the company site.
+- Try WebFetch first (fast). If the page is empty or JavaScript-only (Workday,
+  Phenom, iCIMS, SuccessFactors...), and Chrome is available, open it in Chrome
+  and read it there. Follow `${CLAUDE_PLUGIN_ROOT}/shared/chrome.md` (the
+  `shared/` folder two levels up from this skill's base directory).
+- On careers sites that show a job page AND an Apply button, the Apply flow is
+  the real signal: a job page can say "no longer available" while the apply
+  link still works, and the other way around. With Chrome, check the Apply
+  button leads to an open form (open it, read it, don't fill anything).
 - Mark:
-  - **✅ verified**: you fetched the company's OWN careers/ATS page for this role
-    in this session and it shows the role as open. An aggregator page never
-    counts as verified, even if it loads.
-  - **⚠️ unverified** — page didn't load or is JavaScript-only (Workday, Phenom,
-    iCIMS...). Say "open it yourself to confirm".
+  - **✅ verified**: you opened the company's OWN careers/ATS page for this role
+    in this session (WebFetch or Chrome) and it shows the role as open. An
+    aggregator page never counts as verified, even if it loads.
+  - **⚠️ unverified** — couldn't open it (JavaScript-only and no Chrome, login
+    wall, CAPTCHA). Say "open it yourself to confirm".
   - Drop it if the page says closed / no longer available, or it's an aggregator
     page older than ~60 days with no company-site match.
 - Never mark something verified that you did not open in this session.

@@ -16,6 +16,7 @@ It helps you:
 | `/chambas:setup` | Asks you a few questions and builds your private job-hunt folder from your current CV. Start here. |
 | `/chambas:find-jobs` | Searches the web for jobs that fit you, checks that the links are real and still open, and tells you whether you're eligible from your country. |
 | `/chambas:tailor` | Adapts your CV to one specific job, tells you honestly how well you fit, and gives you a ready-to-print PDF and a short note for the recruiter. **It never invents experience.** |
+| `/chambas:apply` | Helps you fill the application form: with Chrome connected it fills the fields and attaches your CV, then **stops so you review and click Submit yourself**. Without Chrome it gives you a copy-paste answer sheet. |
 | `/chambas:interview-review` | Reads a transcript of a real interview and gives you feedback per question, with better answers built from your own experience. |
 | `/chambas:coach` | Practice interviews: it plays the interviewer for the role and round you choose, then tells you what to fix. |
 | `/chambas:tracker` | Keeps track of every application, tells you what to follow up on today, and helps you compare and negotiate offers. |
@@ -27,6 +28,9 @@ It works in **English and Spanish**. Pick one during setup.
 - The **Claude desktop app** (Mac or Windows) or Claude Code in a terminal.
   It does **not** work on claude.ai in the browser (web sessions can't install plugins).
 - Nothing else: no API keys, no coding, nothing else to install.
+- **Optional:** the [Claude in Chrome](https://claude.com/chrome) extension (Chrome,
+  Edge or another Chromium browser). With it, Chambas can check more job links
+  and fill application forms for you to review.
 
 ## Install (2 minutes)
 **Not technical? Follow the step-by-step guide with explanations:
@@ -52,6 +56,11 @@ Then type:
 - Like anything you do in Claude Code, your conversation is processed by Claude.
   See Anthropic's privacy policy if you have questions about that.
 - Don't run Chambas inside a copy of this repository. Use your own folder.
+
+## Why it never clicks Submit for you
+Auto-applying to hundreds of jobs gets filtered as spam, can get your LinkedIn
+account banned, and may answer questions like work authorization or salary
+wrongly in your name. Chambas does the boring 90% and leaves the final click to you.
 
 ## Honest limits
 - **Job search sees part of the market, not all of it.** Some company career
@@ -90,6 +99,7 @@ Un kit gratuito para buscar trabajo que corre dentro de
 | `/chambas:setup` | Te hace unas preguntas y arma tu carpeta privada de búsqueda a partir de tu CV actual. Empieza aquí. |
 | `/chambas:find-jobs` | Busca vacantes que te queden, revisa que los links sean reales y sigan abiertos, y te dice si puedes aplicar desde tu país. |
 | `/chambas:tailor` | Adapta tu CV a una vacante específica, te dice con honestidad qué tan bien encajas, y te da un PDF listo y un mensaje corto para el reclutador. **Nunca inventa experiencia.** |
+| `/chambas:apply` | Te ayuda a llenar la solicitud: con Chrome conectado llena los campos y adjunta tu CV, y **se detiene para que revises y tú des clic en Enviar**. Sin Chrome te da una hoja de respuestas para copiar y pegar. |
 | `/chambas:interview-review` | Lee la transcripción de una entrevista real y te da retroalimentación por pregunta, con mejores respuestas construidas con tu propia experiencia. |
 | `/chambas:coach` | Simulacros de entrevista: hace de entrevistador para el puesto y la ronda que elijas, y luego te dice qué mejorar. |
 | `/chambas:tracker` | Lleva el control de todas tus aplicaciones, te dice a quién dar seguimiento hoy, y te ayuda a comparar y negociar ofertas. |
@@ -101,6 +111,9 @@ Funciona en **español e inglés**. Lo eliges en el setup.
 - La **app de escritorio de Claude** (Mac o Windows) o Claude Code en terminal.
   **No** funciona en claude.ai desde el navegador (ahí no se pueden instalar plugins).
 - Nada más: ni API keys, ni programar, ni instalar otras cosas.
+- **Opcional:** la extensión [Claude in Chrome](https://claude.com/chrome) (Chrome,
+  Edge u otro navegador Chromium). Con ella, Chambas revisa más links de vacantes
+  y llena solicitudes para que tú las revises.
 
 ## Instalación (2 minutos)
 **¿No eres técnico? Sigue la guía paso a paso: [docs/GUIA-INICIO.md](docs/GUIA-INICIO.md).**
@@ -125,6 +138,11 @@ Luego escribe:
 - Como todo lo que haces en Claude Code, tu conversación la procesa Claude.
   Revisa la política de privacidad de Anthropic si tienes dudas.
 - No uses Chambas dentro de una copia de este repositorio. Usa tu propia carpeta.
+
+## Por qué nunca da clic en Enviar por ti
+Aplicar automáticamente a cientos de vacantes se filtra como spam, puede hacer
+que bloqueen tu cuenta de LinkedIn, y puede contestar mal en tu nombre preguntas
+como permiso de trabajo o sueldo. Chambas hace el 90% aburrido y el último clic es tuyo.
 
 ## Límites honestos
 - **La búsqueda ve una parte del mercado, no todo.** Algunos portales de empleo

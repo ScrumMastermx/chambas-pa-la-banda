@@ -67,6 +67,7 @@ Los comandos están por si los quieres:
 
 - `/chambas:find-jobs`: busca vacantes que te queden
 - `/chambas:tailor`: pega una vacante y recibe tu CV adaptado + PDF
+- `/chambas:apply`: llena una solicitud (tú das clic en Enviar)
 - `/chambas:interview-review`: pasa la transcripción de una entrevista y recibe retroalimentación
 - `/chambas:coach`: practica una entrevista
 - `/chambas:tracker`: "¿qué hago hoy?", "apliqué a X", "me ofrecieron"
@@ -82,6 +83,17 @@ elige **Guardar como PDF** y desactiva "encabezados y pies de página".
   grabo para tomar notas?"). Como candidato normalmente no puedes activar la
   transcripción de Zoom, Meet o Teams, pero quien te entrevista sí puede compartirla.
 - Nunca grabes a nadie sin su permiso.
+
+## Opcional: conecta Chrome
+Permite que Chambas abra páginas de vacantes que necesitan un navegador real y
+llene solicitudes (siempre se detiene antes de Enviar).
+1. Instala la extensión **Claude in Chrome** desde [claude.com/chrome](https://claude.com/chrome)
+   en Chrome (o Edge) e inicia sesión con la misma cuenta de Claude.
+2. En Claude Code, escribe `/chrome` y sigue los pasos para conectarla.
+3. Cuando Chambas quiera abrir una página, Chrome puede pedirte permiso para ese sitio.
+
+Para aplicar: corre `/chambas:apply` después de `/chambas:tailor`. Te pedirá
+guardar tu CV como `cv.pdf` en la carpeta de la vacante primero.
 
 ## Actualizar
 Escribe `/plugin`, ve a **Installed**, elige **chambas** y dale **Update**.

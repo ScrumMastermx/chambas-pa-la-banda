@@ -67,6 +67,7 @@ The commands are there if you want them:
 
 - `/chambas:find-jobs`: find jobs that fit you
 - `/chambas:tailor`: paste a job post and get a tailored CV + PDF
+- `/chambas:apply`: fill an application form (you click Submit)
 - `/chambas:interview-review`: drop in an interview transcript and get feedback
 - `/chambas:coach`: practice an interview
 - `/chambas:tracker`: "what should I do today?", "I applied to X", "I got an offer"
@@ -82,6 +83,17 @@ choose **Save as PDF**, and turn off "headers and footers".
   so I can take notes?"). As a candidate you usually can't turn on Zoom, Meet or
   Teams transcripts yourself, but the interviewer can share one.
 - Never record anyone without their permission.
+
+## Optional: connect Chrome
+Lets Chambas open job pages that need a real browser, and fill application
+forms (it always stops before Submit).
+1. Install the **Claude in Chrome** extension from [claude.com/chrome](https://claude.com/chrome)
+   in Chrome (or Edge) and sign in with the same Claude account.
+2. In Claude Code, type `/chrome` and follow the steps to connect it.
+3. When Chambas wants to open a page, Chrome may ask you to allow the site.
+
+To apply: run `/chambas:apply` after `/chambas:tailor`. It will ask you to save
+your CV as `cv.pdf` in the job's folder first.
 
 ## Updating
 Type `/plugin`, go to **Installed**, pick **chambas** and choose **Update**.
